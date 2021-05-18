@@ -15,11 +15,12 @@ static void PrintMatrix(MathLib::Matrix<T, rows, columns> matrix)
 
 int main()
 {
-	MathLib::Matrix<int, 2, 2> matrix = MathLib::Matrix<int, 2, 2>(
-		new int[4] {
-			3, 7,
-			5, 8
-		}, 4);
+	MathLib::Matrix<int, 3, 3> matrix = MathLib::Matrix<int, 3, 3>(
+		new int[9] {
+			3, 7, 2,
+			5, 8, 7,
+			1, 2, 3
+		}, 9);
 	
 	PrintMatrix<int>(matrix.Transpose());
 

@@ -57,11 +57,12 @@ namespace MathLib
 		}
 
 	public:
-		T* MatrixArray;	//	Array storing the mapped matrix.
+		T MatrixArray[rows * columns] {};	//	Array storing the mapped matrix.
 
 		unsigned int Size,	//	Size of the Matrix Array
 					Rows,
 					Columns;
+
 
 		template<int x, int y>
 		bool IsMultiplicable(Matrix<T, x, y> matrix)	//	Checks if the current instance is multiplicable with the provided instance
@@ -180,12 +181,12 @@ namespace MathLib
 
 		Matrix() : Rows(rows), Columns(columns), Size(rows * columns)
 		{
-			this->MatrixArray = new T[this->Size] {};
+			// this->MatrixArray = new T[this->Size] {};
 		}
 
 		Matrix(T* matrixArray, unsigned int size) : Rows(rows), Columns(columns), Size(rows * columns)
 		{
-			this->MatrixArray = new T[this->Size];
+			// this->MatrixArray = new T[this->Size];
 
 			this->Initialize(matrixArray, size);
 		}
@@ -193,14 +194,13 @@ namespace MathLib
 		Matrix(std::vector<T> matrixArray) : Rows(rows), Columns(columns), Size(rows * columns)
 		{
 			this->MatrixArray = new T[this->Size];
-			
+			// 
 			this->Initialize(matrixArray);
 		}
 
-		// ~Matrix()
-		// {
-		// 	delete this->MatrixArray;
-		// }
+		~Matrix()
+		{
+		}
 	};
 }
 
