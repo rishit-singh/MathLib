@@ -1,5 +1,6 @@
 #include <iostream>
 #include "matrix.h"
+#include "general.h"
 
 template<typename T, int rows, int columns>
 static void PrintMatrix(MathLib::Matrix<T, rows, columns> matrix)
@@ -15,14 +16,14 @@ static void PrintMatrix(MathLib::Matrix<T, rows, columns> matrix)
 
 int main()
 {
-	MathLib::Matrix<int, 3, 3> matrix = MathLib::Matrix<int, 3, 3>(
-		new int[9] {
-			3, 7, 2,
-			5, 8, 7,
-			1, 2, 3
-		}, 9);
+	int* numbers = new int[5] { 0, 30, 45, 60, 90 };
+
+
+	for (int x = 0; x < 5; x++)
+		std::cout << "Sin(" << numbers[x] << "): " << MathLib::General::Sin(numbers[x])
+			<< '\n';
 	
-	PrintMatrix<int>(matrix.Transpose());
+	delete numbers;
 
 	return 0;
 }
